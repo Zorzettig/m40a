@@ -1,0 +1,16 @@
+{
+    "name": "M40a App",
+    "short_name": "M40a",
+    "description": "App per la compilazione del modulo M40a",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#f3f4f6",
+    "theme_color": "#2563eb",
+    "icons": [
+        {
+            "src": "icona.jpg",
+            "sizes": "192x192 512x512",
+            "type": "image/jpeg"
+        }
+    ]
+}
