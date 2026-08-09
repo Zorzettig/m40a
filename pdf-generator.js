@@ -34,14 +34,16 @@ async function generatePDF(data) {
 
     // Dimensioni font proporzionate
     const sizeLarge = 22 * scale; // Per Treno, date, ruoli, firme
-    const sizeNormal = 18 * scale; // Per il testo libero
+    const sizeNormal = 16 * scale; // Per il testo libero (leggermente ridotto per adattarsi meglio)
+
+    const textColor = rgb(0, 0, 0);
 
     // --- Inserimento Dati ---
 
     // N. M40a
     page.drawText(data.numeroM40, {
-        x: width * 0.87,
-        y: height * 0.78,
+        x: width * 0.88,   // Spostato leggermente a destra
+        y: height * 0.79,  // Abbassato leggermente
         size: sizeLarge,
         font: fontBold,
         color: textColor,
@@ -49,22 +51,22 @@ async function generatePDF(data) {
 
     // Numero Treno
     page.drawText(data.numeroTreno, {
-        x: width * 0.50,
-        y: height * 0.68,
+        x: width * 0.48,   // Spostato a destra nello spazio vuoto
+        y: height * 0.705, // Alzato sopra i puntini
         size: sizeLarge,
         font: fontBold,
         color: textColor,
     });
 
     // Data (Giorno, Mese, Anno)
-    page.drawText(day, { x: width * 0.67, y: height * 0.68, size: sizeLarge, font: fontBold });
-    page.drawText(month, { x: width * 0.74, y: height * 0.68, size: sizeLarge, font: fontBold });
-    page.drawText(shortYear, { x: width * 0.83, y: height * 0.68, size: sizeLarge, font: fontBold });
+    page.drawText(day, { x: width * 0.67, y: height * 0.705, size: sizeLarge, font: fontBold });
+    page.drawText(month, { x: width * 0.74, y: height * 0.705, size: sizeLarge, font: fontBold });
+    page.drawText(shortYear, { x: width * 0.83, y: height * 0.705, size: sizeLarge, font: fontBold });
 
     // Ruolo
     page.drawText(data.ruolo, {
-        x: width * 0.40,
-        y: height * 0.61,
+        x: width * 0.38,
+        y: height * 0.62, // Alzato per non toccare i puntini
         size: sizeLarge,
         font: fontBold,
     });
@@ -89,8 +91,8 @@ async function generatePDF(data) {
     }
 
     // Testo Prescrizione (8 righe puntinate)
-    const startY = height * 0.543;
-    const lineSpacing = height * 0.0385; // Spaziatura tra le righe
+    const startY = height * 0.540; // Abbassato leggermente per toccare la prima riga
+    const lineSpacing = height * 0.0385; // Spaziatura tra le righe (perfetta)
     const maxWidth = width * 0.88; 
 
     // Text wrapping
@@ -128,15 +130,15 @@ async function generatePDF(data) {
     const emittenteString = `${data.emittenteCognome} ${data.emittenteProgressivo} alle ore ${data.oraEmissione}`;
     page.drawText(emittenteString, {
         x: width * 0.05,
-        y: height * 0.26,
+        y: height * 0.28, // Alzato leggermente per non toccare i puntini
         size: sizeLarge,
         font: fontBold,
     });
 
     // Agente di Condotta (Firma in basso a destra, sopra i puntini)
     page.drawText(`${data.adcCognome}   ${data.adcProgressivo}`, {
-        x: width * 0.60,
-        y: height * 0.185,
+        x: width * 0.66, // Spostato a destra per centrare meglio
+        y: height * 0.19, // Alzato leggermente
         size: sizeLarge,
         font: fontBold,
     });
