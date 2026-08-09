@@ -41,7 +41,7 @@ async function generatePDF(data) {
     // N. M40a
     page.drawText(data.numeroM40, {
         x: width * 0.87,
-        y: height * 0.81,
+        y: height * 0.78,
         size: sizeLarge,
         font: fontBold,
         color: textColor,
@@ -49,7 +49,7 @@ async function generatePDF(data) {
 
     // Numero Treno
     page.drawText(data.numeroTreno, {
-        x: width * 0.44,
+        x: width * 0.50,
         y: height * 0.68,
         size: sizeLarge,
         font: fontBold,
@@ -57,13 +57,13 @@ async function generatePDF(data) {
     });
 
     // Data (Giorno, Mese, Anno)
-    page.drawText(day, { x: width * 0.65, y: height * 0.68, size: sizeLarge, font: fontBold });
-    page.drawText(month, { x: width * 0.72, y: height * 0.68, size: sizeLarge, font: fontBold });
-    page.drawText(shortYear, { x: width * 0.81, y: height * 0.68, size: sizeLarge, font: fontBold });
+    page.drawText(day, { x: width * 0.67, y: height * 0.68, size: sizeLarge, font: fontBold });
+    page.drawText(month, { x: width * 0.74, y: height * 0.68, size: sizeLarge, font: fontBold });
+    page.drawText(shortYear, { x: width * 0.83, y: height * 0.68, size: sizeLarge, font: fontBold });
 
     // Ruolo
     page.drawText(data.ruolo, {
-        x: width * 0.38,
+        x: width * 0.40,
         y: height * 0.61,
         size: sizeLarge,
         font: fontBold,
@@ -128,14 +128,14 @@ async function generatePDF(data) {
     const emittenteString = `${data.emittenteCognome} ${data.emittenteProgressivo} alle ore ${data.oraEmissione}`;
     page.drawText(emittenteString, {
         x: width * 0.05,
-        y: height * 0.275,
+        y: height * 0.26,
         size: sizeLarge,
         font: fontBold,
     });
 
     // Agente di Condotta (Firma in basso a destra, sopra i puntini)
     page.drawText(`${data.adcCognome}   ${data.adcProgressivo}`, {
-        x: width * 0.62,
+        x: width * 0.60,
         y: height * 0.185,
         size: sizeLarge,
         font: fontBold,
