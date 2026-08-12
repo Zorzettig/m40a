@@ -1,4 +1,4 @@
-const CACHE_NAME = 'm40a-v1';
+const CACHE_NAME = 'm40a-v2';
 const urlsToCache = [
     './',
     './index.html',
