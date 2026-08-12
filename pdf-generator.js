@@ -36,8 +36,6 @@ async function generatePDF(data) {
     const sizeLarge = 22 * scale; // Per Treno, date, ruoli, firme
     const sizeNormal = 16 * scale; // Per il testo libero (leggermente ridotto per adattarsi meglio)
 
-    const textColor = rgb(0, 0, 0);
-
     // --- Inserimento Dati ---
 
     // N. M40a
